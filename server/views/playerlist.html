@@ -1,0 +1,28 @@
+<% layout('layout') -%>
+<table class="table table-bordered table-striped">
+	<tr>
+		<td></td>
+		<td>Name</td>
+		<td>Life</td>
+		<td>Dead</td>
+		<td>Kill</td>
+		<td>X</td>
+		<td>Y</td>
+		<td>ID</td>
+	</tr>
+	<% for (var i = 0; i < players.length; i++) {
+		var player = players[i];
+	%>
+		<tr>
+			<td><%= (i+1) %></td>
+			<td><%= player.getName() %></td>
+			<td><%= player.getLife() %></td>
+			<td><%= player.getDead() %></td>
+			<td><%= player.getKill() %></td>
+			<td><%= player.getX() %></td>
+			<td><%= player.getY() %></td>
+			<td><%= player.id %></td>
+		</tr>
+	<%	} %>
+	
+</table>
