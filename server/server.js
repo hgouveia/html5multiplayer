@@ -3,7 +3,7 @@ var util = require("util"),					// Utility resources (logging, object inspection
 	express = require('express'),ejsEngine = require('ejs-locals'),				
 	Player = require("./Player").Player;
 
-var port = 8000;
+var port = 3478;
 var expressServer;
 var clients;
 

@@ -3,13 +3,14 @@ var ctx,loopInterval,lastTime = 0,log,
 	canvasWidth=1280,canvasHeight=768,
 	running=false,key= new Array(255),
 	playerObj,statsBox,remotePlayers, bullets,
-	host="localhost", port = 8000;
+	host="joyalstudios.com", port = 3478;
 
 //File Inclusion
 include("scripts/libs/socket.io-client/socket.io.js");
 include("scripts/game/entities/player.js");
 include("scripts/game/entities/bullet.js");
 include("scripts/game/entities/statsbox.js");
+include("scripts/game/entities/playerbot.js");
 include("scripts/game/multiplayer.js");
 include("scripts/game/gamelogic.js");
 	

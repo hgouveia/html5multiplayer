@@ -61,13 +61,21 @@ function onSocketConnected() {
     	startX = rand(bounds,canvasWidth-bounds),
 		startY = rand(bounds,canvasHeight-bounds),
 		startAngle = 0;
-  
-    var playerNameInput = prompt("Please enter your name", playerName);
-    if (playerNameInput != null) {
-       playerName = playerNameInput;
-    }
 
-    playerObj = new Player(playerName,startX,startY,startAngle,100,"#0000ff",true);
+  	var isBot 	= getParameterByName("isBot");
+  	var botName = getParameterByName("botName");
+  	
+  	if (isBot != undefined && isBot != ""){
+  		playerName = botName;
+  		playerObj = new PlayerBot(playerName,startX,startY,startAngle,100,"#0000ff",true);
+  	}else{  
+	    var playerNameInput = prompt("Please enter your name", playerName);
+	    if (playerNameInput != null) {
+	       playerName = playerNameInput;
+	    }
+
+	    playerObj = new Player(playerName,startX,startY,startAngle,100,"#0000ff",true);
+    }
 	socket.emit("NWP", {name:playerName,x: startX, y: startY,angle: startAngle, life: 100});
 };
 

@@ -18,6 +18,9 @@ function playerById(id) {
 function toRad(degree){
 	return degree * Math.PI/180;
 }
+function toDegree(rad){
+	return rad * 180/Math.PI;
+}
 //intersect between 2 rectangle
 //format r1 = { left:0, right:0, bottom:0, top:0}
 function intersectRect(r1, r2) {
@@ -45,4 +48,15 @@ function include(filename){
     script.type = 'text/javascript';
 
     head.appendChild(script)
+}
+/*
+Usage:
+
+var prodId = getParameterByName('prodId');
+*/
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
