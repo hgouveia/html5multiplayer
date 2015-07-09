@@ -50,3 +50,6 @@ This game is released as it is, it has bugs, is not ready for commercial or prod
 License: MIT License
 
 Legal: http://opensource.org/licenses/MIT
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hgouveia/html5multiplayer/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
