@@ -5,11 +5,16 @@ var util = require("util"),					// Utility resources (logging, object inspection
 
 var port = 3478;
 var expressServer;
-var clients;
+var clients= [],
+	players= [],
+	logPlayers= [],
+	enableLogPlayer = true;
 
 //Initializ the server
 function initialize(){
-	players = clients = [];
+	players 	= []; 
+	logPlayers 	= []; 
+	clients 	= [];
 
 
 	expressServer = app.listen(port);
@@ -51,6 +56,10 @@ function socketEvents(client) {
 	//[MSG] General message: emitted from onPlayerDead [DEP] event only for now
 	//[KLL] Player Kill: emitted from onPlayerDead [DEP] event
 	
+	//update log player
+	if(enableLogPlayer){
+		updatelogPlayer(client.id);
+	}
 };
 
 
@@ -94,6 +103,9 @@ function onNewPlayer(data) {
 		
 	// Add new player to the players array
 	players.push(newPlayer);
+	if(enableLogPlayer){
+		logPlayers.push(newPlayer);
+	}
 };
 
 // Player has moved
@@ -174,7 +186,22 @@ function playerById(id) {
 	
 	return false;
 };
+//Update the player info in the logPlayer array
+function updatelogPlayer(id){
+	
+	var player = playerById(id);
 
+	if (player){
+
+		for (var i = 0; i < logPlayers.length; i++) {
+			if (logPlayers[i].id == id){
+				logPlayers[i] = player;
+				break;	
+			}
+		};
+
+	}
+}
 /*_____________EXPRESS_________*/
 var app = express();
 app.set('views', __dirname + '/views');
@@ -188,7 +215,12 @@ app.get('/', function (req, res) {
 });
 
 app.get('/list', function (req, res) {
-	res.render('playerlist', { players: players });
+	var params = { 
+					"players"			: players,
+					"logPlayers"		: logPlayers, 
+					"enableLogPlayer"	: enableLogPlayer
+				};
+	res.render('playerlist', params);
 });
 
 /// catch 404 and forwarding to error handler

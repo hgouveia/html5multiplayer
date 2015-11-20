@@ -20,7 +20,7 @@ var Player = function(_name,_x,_y,_angle,_life,_color,_isLocalPlayer){
 		lastX = 0, lastY = 0, elapseTime;
 
 	//Update var helpers
-	var lastState = false; var time=0; flickeringToggle=false;
+	var lastState = false, time=0, flickeringToggle=false;
 	
 	//Public
 	this.x = 0, this.y = 0, this.id = 0,this.angle = 0;
