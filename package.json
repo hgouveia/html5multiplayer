@@ -1,5 +1,5 @@
 {
-  "name": "ts-mp",
+  "name": "hgouveia/html5multiplayer",
   "version": "1.0.0",
   "description": "A simple multiplayer game using HTML5 Canvas in conjuction with nodejs",
   "main": "build/server/index.js",
@@ -27,7 +27,7 @@
     "@types/node": "^12.6.8",
     "@types/socket.io": "^2.1.2",
     "@types/socket.io-client": "^1.4.32",
-    "crossenv": "0.0.2-security",
+    "cross-env": "^6.0.3",
     "nodemon": "^1.19.1",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
