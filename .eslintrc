@@ -1,0 +1,17 @@
+{
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "env": {
+        "node": true,
+        "es6": true
+    },
+    "rules": {
+        "no-console": [true, "log", "debug", "error"],
+        "quotes": [2, "single", {"avoidEscape": true}],
+        "strict": [2, "never"]
+    },
+    "extends": [
+        "eslint:recommended"
+    ]
+}

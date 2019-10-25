@@ -1,0 +1,56 @@
+<br />
+<h2>Active Players (<%=players.length%>)</h2>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <th>
+        <td>ID</td>
+        <td>Life</td>
+        <td>Dead</td>
+        <td>Kill</td>
+        <td>X</td>
+        <td>Y</td>
+        </th>
+    </thead>
+    <tbody>
+        <% for (let player of players) {%>
+        <tr>
+            <td><%= player.id %></td>
+            <td><%= player.name %></td>
+            <td><%= player.getLife() %></td>
+            <td><%= player.getDead() %></td>
+            <td><%= player.getKill() %></td>
+            <td><%= player.x %></td>
+            <td><%= player.y %></td>
+        </tr>
+        <%	} %>
+    </tbody>
+</table>
+
+<h2>History Players (<%=removedPlayers.length%>)</h2>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <th>
+        <td>ID</td>
+        <td>Life</td>
+        <td>Dead</td>
+        <td>Kill</td>
+        <td>X</td>
+        <td>Y</td>
+        </th>
+    </thead>
+    <tbody>
+        <% for (let player of removedPlayers) {%>
+        <tr>
+            <td><%= player.id %></td>
+            <td><%= player.name %></td>
+            <td><%= player.getLife() %></td>
+            <td><%= player.getDead() %></td>
+            <td><%= player.getKill() %></td>
+            <td><%= player.x %></td>
+            <td><%= player.y %></td>
+        </tr>
+        <%	} %>
+    </tbody>
+</table>

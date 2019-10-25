@@ -1,0 +1,13 @@
+version: '3'
+services:
+  node:
+    build: .
+    container_name: mp-server
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - DEBUG=ts-mp:*   
+      - HOST=0.0.0.0
+      - PORT=3478
+    ports:
+      - "3478:3478"
